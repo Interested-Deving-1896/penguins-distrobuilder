@@ -1,0 +1,11 @@
+stages:
+  - lint
+
+shellcheck:
+  stage: lint
+  image: koalaman/shellcheck-alpine:stable
+  script:
+    - find . -name "*.sh" ! -path "./.git/*" -exec shellcheck -S error {} +
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH'
