@@ -1,93 +1,75 @@
+[update-readmes]   Mode: rewrite — migrating to template structure...
 # penguins-distrobuilder
 
-Unified project combining [lxc/distrobuilder](https://github.com/lxc/distrobuilder)
-and [itoffshore/distrobuilder-menu](https://github.com/itoffshore/distrobuilder-menu)
-into a single repository, integrated with
-[penguins-eggs](https://gitlab.com/openos-project/penguins-eggs_deving/penguins-eggs).
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/penguins-distrobuilder)
 
-## Layout
+<!-- AI:start:what-it-does -->
+_Description pending._
+<!-- AI:end:what-it-does -->
 
-```
-penguins-distrobuilder/
-├── distrobuilder/   # lxc/distrobuilder — Go, system container & VM image builder
-├── menu/            # itoffshore/distrobuilder-menu — Python TUI frontend
-├── integration/     # penguins-eggs hook and recovery plugin
-│   ├── eggs-plugin/
-│   └── recovery-plugin/
-├── Makefile         # top-level targets: build, install, run-menu, clean
-└── README.md
-```
+## Architecture
 
-## Components
+<!-- AI:start:architecture -->
+_Architecture documentation pending._
+<!-- AI:end:architecture -->
 
-### distrobuilder (Go)
+## Install
 
-System container and VM image builder for [Incus](https://github.com/lxc/incus)
-and LXC. Builds rootfs images from YAML template definitions.
-
-| Command | Purpose |
-|---|---|
-| `distrobuilder build-dir` | Build plain rootfs |
-| `distrobuilder build-incus` | Build Incus image from scratch |
-| `distrobuilder build-lxc` | Build LXC image from scratch |
-| `distrobuilder pack-incus` | Create Incus image from existing rootfs |
-| `distrobuilder pack-lxc` | Create LXC image from existing rootfs |
-| `distrobuilder repack-windows` | Repack Windows ISO with drivers |
-
-Source: [`distrobuilder/`](distrobuilder/) — upstream: https://github.com/lxc/distrobuilder
-
-### distrobuilder-menu (Python)
-
-Console TUI frontend for distrobuilder. Menu-driven LXD/LXC image building
-with template management, cloud-init config, custom template generation, and
-automatic template updates via the GitHub REST API.
-
-| Command | Purpose |
-|---|---|
-| `dbmenu` | Build LXD container/VM image (default) |
-| `dbmenu --lxc` | Build LXC container image |
-| `dbmenu -o` | Create new template override |
-| `dbmenu -g` | Generate custom template from override |
-| `dbmenu -i` | Create/edit cloud-init configuration |
-| `dbmenu -u` | Force update templates |
-| `dbmenu -v` | Show version / update to latest release |
-| `dbmenu -r` | Regenerate custom templates |
-
-Config: `~/.config/dbmenu.yaml` (auto-generated on first run)
-
-Source: [`menu/`](menu/) — upstream: https://github.com/itoffshore/distrobuilder-menu
-
-## Quick start
+<!-- Add installation instructions here. This section is yours — the AI will not modify it. -->
 
 ```bash
-# Build distrobuilder from source
-make build
-
-# Install distrobuilder binary + dbmenu
-make install
-
-# Launch the TUI menu (LXD mode)
-make run-menu
-
-# Launch the TUI menu (LXC mode)
-make run-menu-lxc
+git clone https://github.com/Interested-Deving-1896/penguins-distrobuilder.git
+cd penguins-distrobuilder
 ```
 
-## penguins-eggs integration
+## Usage
 
-The `integration/eggs-plugin/` hook is called by `eggs produce` to optionally
-build a distrobuilder image of the produced system alongside the standard ISO.
-The `integration/recovery-plugin/` hook snapshots the current container state
-before a factory reset.
+<!-- Add usage examples here. This section is yours — the AI will not modify it. -->
 
-See [`integration/`](integration/) for details.
+## Configuration
 
-## Dependencies
+<!-- Document configuration options here. This section is yours — the AI will not modify it. -->
 
-- **distrobuilder:** Go 1.21+, `squashfs-tools`, `debootstrap` or equivalent
-- **distrobuilder-menu:** Python 3.10+, `pyyaml`, `urllib3`, `yq` (Go version 4+), `incus` or `lxd`
+## CI
 
-## Upstream licenses
+<!-- AI:start:ci -->
+_CI documentation pending._
+<!-- AI:end:ci -->
 
-- `distrobuilder/` — Apache-2.0 (lxc/distrobuilder)
-- `menu/` — GPL-3.0 (itoffshore/distrobuilder-menu)
+## Mirror chain
+
+<!-- AI:start:mirror-chain -->
+This repo is maintained in [`Interested-Deving-1896/penguins-distrobuilder`](https://github.com/Interested-Deving-1896/penguins-distrobuilder) and mirrored through:
+
+```
+Interested-Deving-1896/penguins-distrobuilder  ──►  OpenOS-Project-OSP/penguins-distrobuilder  ──►  OpenOS-Project-Ecosystem-OOC/penguins-distrobuilder
+```
+
+Changes flow downstream automatically via the hourly mirror chain in
+[`fork-sync-all`](https://github.com/Interested-Deving-1896/fork-sync-all).
+Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-Deving-1896`.
+<!-- AI:end:mirror-chain -->
+
+## Contributors
+
+<!-- AI:start:contributors -->
+_Contributors pending._
+<!-- AI:end:contributors -->
+
+## Origins
+
+<!-- AI:start:origins -->
+_Original project — no upstream fork._
+<!-- AI:end:origins -->
+
+## Resources
+
+<!-- AI:start:resources -->
+_No additional resource files found._
+<!-- AI:end:resources -->
+
+## License
+
+<!-- AI:start:license -->
+<!-- License not detected — add a LICENSE file to this repo. -->
+<!-- AI:end:license -->
